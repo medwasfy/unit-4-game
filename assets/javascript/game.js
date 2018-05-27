@@ -33,7 +33,7 @@ $(document).ready(function(){
 	// create dynamic divs with jquery
 	// red crystal div 
 	// =======================================================================
-	var $red = $('<img/>', {
+	 var $red = $('<img/>', {
 		id: 'red',
 		src: "assets/images/redCrystal.png",
 		height: "100px",
@@ -67,7 +67,28 @@ $(document).ready(function(){
 		width: "150px",
 		border: "1px red solid",
 		alt: "green crystal"
-	}).appendTo(".crystals");
+	}).appendTo(".crystals"); 
+	// ..........................
+
+
+	
+
+
+	// ..........................to be checked later on with  TA.......
+
+	/* var crystalsList = $(["red, blue, yellow, green"]);
+	for (var i=0; i<crystalsList.length; i++) {
+		
+		$(newDiv).html("<img>" + crystalsList[i] + "</img>");
+		$(newDiv).addClass({
+			"id": crystalsList[i],
+			"height": "100px",
+			"width": "150px",
+			"src": assets/images/"crystalsList[i] + Crystal".jpg
+		});	
+		console.log(newDiv);
+	} */
+
 	//=================================================================  
 	// start game by clicking and collecting first crystal
 
@@ -165,7 +186,16 @@ $(document).ready(function(){
 
 	//Function and alert for wins
 	function winner(){
-		alert("Good job! You won!");
+		var $winwin = $('<img/>', {
+			id: 'winwin',
+			src: "https://dedivahdeals.files.wordpress.com/2013/07/winner-gif.gif",
+			height: "100px",
+			width: "300px"
+			
+		}).appendTo(".instructions");
+		
+		//src= "https://dedivahdeals.files.wordpress.com/2013/07/winner-gif.gif")
+		//alert("Good job! You won!");
 		 wins++; 
 		 $("body").append($sound);
      	$soundWinner[0].play();
@@ -176,7 +206,16 @@ $(document).ready(function(){
 
 	//Function and alert for losses
 	function loser(){
-		alert("Try Again!");
+		var $loselose = $('<img/>', {
+			id: 'loselose',
+			src: "https://thumbs.gfycat.com/ChubbyCoolFrilledlizard-size_restricted.gif",
+			height: "100px",
+			width: "300px"
+			
+		}).appendTo(".instructions");
+
+		//src= "https://thumbs.gfycat.com/ChubbyCoolFrilledlizard-size_restricted.gif")
+		//alert("Try Again!");
 		losses++;
 		$("body").append($sound);
      	$soundLoser[0].play();
