@@ -92,7 +92,26 @@ $(document).ready(function(){
 	//=================================================================  
 	// start game by clicking and collecting first crystal
 
+	//=====declare global variables =============
+	var $winwin = $('<img/>', {
+		id: 'winwin',
+		src: "https://dedivahdeals.files.wordpress.com/2013/07/winner-gif.gif",
+		height: "100px",
+		width: "300px"
+		});
 
+	var $loselose = $('<img/>', {
+		id: 'loselose',
+		src: "https://thumbs.gfycat.com/ChubbyCoolFrilledlizard-size_restricted.gif",
+		height: "100px",
+		width: "300px"	
+		});
+
+	//============================================
+
+	function gameStart() {
+		$winwin.remove();
+		$loselose.remove();
 	$('#red').on('click', function(){
 		
 		$("body").append($sound);
@@ -182,17 +201,12 @@ $(document).ready(function(){
 				loser();
 			}
 	})
+//==============================================
 
 
 	//Function and alert for wins
 	function winner(){
-		var $winwin = $('<img/>', {
-			id: 'winwin',
-			src: "https://dedivahdeals.files.wordpress.com/2013/07/winner-gif.gif",
-			height: "100px",
-			width: "300px"
-			
-		}).appendTo(".instructions");
+		$winwin.appendTo(".instructions");
 		
 		//src= "https://dedivahdeals.files.wordpress.com/2013/07/winner-gif.gif")
 		//alert("Good job! You won!");
@@ -206,13 +220,7 @@ $(document).ready(function(){
 
 	//Function and alert for losses
 	function loser(){
-		var $loselose = $('<img/>', {
-			id: 'loselose',
-			src: "https://thumbs.gfycat.com/ChubbyCoolFrilledlizard-size_restricted.gif",
-			height: "100px",
-			width: "300px"
-			
-		}).appendTo(".instructions");
+		$loselose.appendTo(".instructions");
 
 		//src= "https://thumbs.gfycat.com/ChubbyCoolFrilledlizard-size_restricted.gif")
 		//alert("Try Again!");
@@ -223,7 +231,7 @@ $(document).ready(function(){
 		$('#numberOfLosses').text(losses);
 		reset();
 	}
-
+	
 	//Function for game reset
 	function reset(){
 		Random=Math.floor(Math.random()*101+19);
@@ -235,6 +243,9 @@ $(document).ready(function(){
 		num4=Math.floor(Math.random()*11+1);
 		userScore=0;
 		$('#totalScore').text(userScore);
+		
 	}
-
+	}
+	gameStart();
 });
+
